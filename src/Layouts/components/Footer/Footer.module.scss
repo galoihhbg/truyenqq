@@ -1,0 +1,28 @@
+.wrapper {
+    background-color: #fff;
+    border-top: 5px solid #f18121;
+    padding: 30px 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.inner {
+    max-width: 1200px;
+    width: 100%;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.right {
+    float: right;
+}
+
+@media (max-width: 576px) {
+    .right {
+        float: none;
+    }
+    .inner {
+        padding: 0 20px;
+    }
+}

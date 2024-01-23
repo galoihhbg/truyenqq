@@ -1,0 +1,235 @@
+.wrapper {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 100px;
+    margin: auto;
+
+    line-height: 3.4rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+
+    text-decoration: none;
+    color: var(--white);
+    border-radius: 4px;
+
+    border: solid 1px transparent;
+
+    background-color: #3f94d5;
+
+    margin: 5px 0;
+    padding: 0 6px;
+
+    cursor: pointer;
+    user-select: none;
+
+    + .wrapper {
+        margin-left: 10px;
+    }
+}
+.icon + .title, .title + .icon {
+    margin-left: 5px;
+}
+
+.text {
+    background-color: transparent;
+    color: var(--black);
+}
+
+.circle {
+    margin: 0;
+    border-radius: 999px;
+    min-width: 44px;
+    height: 44px;
+    font-size: 1.5rem;
+}
+
+.primary {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+.outline {
+    color: var(--primary);
+    border-color: currentColor;
+}
+
+.hover {
+    &:hover {
+        background-color: var(--primary);
+        transition-duration: 0.15s;
+        color: var(--white);
+    }
+}
+
+.medium {
+    height: 36px;
+}
+
+.large {
+    height: 44px;
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 2rem;
+}
+
+.xLarge {
+    height: 60px;
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 6rem;
+}
+
+.navItem {
+    border-color: transparent;
+    justify-content: left;
+    + .navItem {
+        margin-left: 0px;
+    }
+    width: 12.5%;
+    height: 40px;
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin: 0;
+
+    &:hover {
+        color: var(--primary);
+        transition: ease-in 0.15s;
+    }
+}
+
+.comic-action-list {
+    height: 39px;
+    padding: 0 10px;
+    font-size: 1.5rem;
+    font-weight: 400;
+    min-width: 125px;
+    &:hover {
+        opacity: 60%;
+        transition: ease-in 0.15s;
+    }
+}
+
+.cyan {
+    color: var(--cyan);
+}
+
+.bgPinkRed {
+    background-color: var(--pink-red);
+}
+
+.bgModGreen {
+    background-color: var(--moderate-green);
+}
+
+.bgPinkViolet {
+    background-color: var(--pink-violet);
+}
+
+.noMargin {
+    margin: 0;
+}
+
+.genre-list-item {
+    min-width: 0;
+    height: 27px;
+
+    margin-right: 10px;
+
+    + .genre-list-item {
+        margin-left: 0;
+    }
+}
+
+.toggle-see-more {
+    height: fit-content;
+    font-size: 1.3rem;
+    min-width: 0;
+    line-height: 1.3rem;
+    padding: 7px;
+    font-weight: 400;
+}
+
+.chapter-list-item {
+    min-width: 0;
+    height: auto;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 400;
+    padding: 0;
+    color: inherit;
+
+    -webkit-line-clamp: 1;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    &:hover {
+        color: var(--primary);
+    }
+}
+
+.chapter-side-nav-item {
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    min-width: 0;
+    width: 65px;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    color: var(--black-color);
+    text-align: center;
+    border: none;
+    border-bottom: var(--black) solid 1px;
+    + .chapter-side-nav-item {
+        margin-left: 0;
+    }
+    border-radius: 0;
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.chapter-side-nav-item:hover:not(.disabled) {
+    background-color: var(--white);
+    color: var(--primary);
+}
+
+@media (max-width: 1200px) {
+    .navItem {
+        width: 20%;
+    }
+}
+
+@media (max-width: 991.99px) {
+    .navItem {
+        width: 25%;
+    }
+
+    .chapter-side-nav-item {
+        flex: 1;
+        border-bottom: 0;
+        border-top: var(--white) solid 1px;
+        height: 50px;
+    }
+
+    .chapter-side-nav-item:hover:not(.disabled) {
+        background-color: var(--primary);
+        color: var(--white);
+    }
+}
+
+@media (max-width: 576px) {
+    .comic-action-list {
+        flex: 1;
+    }
+
+    .navItem {
+        width: 50%;
+    }
+
+    .right-button {
+        min-width: 0;
+    }
+}

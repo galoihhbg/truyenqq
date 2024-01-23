@@ -1,0 +1,29 @@
+.wrapper {
+    width: 100%;
+    color: var(--black);
+    background-color: var(--white);
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, .2);
+    margin-bottom: 20px;
+}
+
+.title {
+    display: flex;
+    background-color: var(--primary);
+    color: var(--white);
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    font-weight: 500;
+    padding: 5px 0;
+}
+
+.schedule-item {
+    font-size: 1.6rem;
+    letter-spacing: -.5px;
+    margin: 0 10px 5px 0;
+}

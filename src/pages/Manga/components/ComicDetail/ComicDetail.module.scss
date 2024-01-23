@@ -1,0 +1,120 @@
+.wrapper {
+    width: 100%;
+    display: block;
+}
+
+.breadcrumb {
+    width: 100%;
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding: 10px 0;
+    margin-bottom: 0;
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+}
+
+.container {
+    width: 100%;
+    display: inline-flex;
+    padding: 10px 0;
+}
+
+.cover {
+    width: 200px;
+    height: 287px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-right: 30px;
+    margin-left: 15px;
+}
+
+.detail {
+    width: 100%;
+}
+
+.detail-info {
+    width: 100%;
+    display: flex;
+    font-size: 1.5rem;
+    line-height: 3rem;
+    font-weight: 400;
+}
+
+.title {
+    width: 100%;
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 2.5rem;
+    padding-bottom: 10px;
+}
+
+.key-list, .value-list {
+    p {
+        margin-bottom: 0;
+    }
+}
+
+.key-list {
+    flex: 1;
+}
+
+.value-list {
+    flex: 4;
+    text-transform: capitalize;
+}
+
+.icon {
+    padding-right: 5px;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.bottom {
+    margin-left: 10px;
+}
+
+@media (min-width: 817px) and (max-width: 992px) {
+    .value-list {
+        flex: 3;
+    }
+}
+
+@media (max-width: 816px) {
+    .value-list {
+        flex: 2.5;
+    }
+    .container{
+        flex-direction: column;
+    }
+
+    .cover {
+        align-self: center;
+        margin-right: 0;
+        margin-left: 0;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .value-list {
+        flex: 1.4;
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+
+    .top, .bottom {
+        display: flex;
+    }
+    .bottom {
+        margin-left: 0;
+    }
+}

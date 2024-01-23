@@ -1,0 +1,63 @@
+.wrapper {
+    background-color: var(--white);
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.description {
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 2.5rem;
+}
+
+.title {
+    color: var(--primary);
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 4rem;
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 0;
+}
+
+.icon {
+    padding-right: 5px;
+}
+
+.container {
+    width: 100%;
+    border-radius: 5px;
+    max-height: 500px;
+    overflow: auto;
+    min-height: 300px;
+    box-shadow: 0 2px 3px rgb(10 10 10 / 10%), 0 0 0 1px rgb(10 10 10 / 10%);
+    color: #4a4a4a;
+    display: block;
+    padding: 20px;
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+
+.loading {
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeHolderShimmer;
+    animation-timing-function: linear;
+    background: #f6f7f8;
+    background: linear-gradient(to right, #eee 8%, #ddd 18%, #eee 33%);
+    background-size: 800px 200px;
+    height: 150px;
+    position: relative;
+  }
+  
+  @keyframes placeHolderShimmer {
+    from {
+      background-position: -800px 0;
+    }
+    
+    to {
+      background-position: 800px 0;
+    }
+  }
