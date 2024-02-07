@@ -239,8 +239,8 @@ function Header({children}) {
                                         <FontAwesomeIcon icon={faSearch} />
                                     </Button>
                                 </div>
-                            <Button classnames={cx('right-button')} medium hover text={false}>Đăng ký</Button>
-                            <Button classnames={cx('right-button')} medium hover text={false}>Đăng nhập</Button>
+                            <Button to={config.routes.register} classnames={cx('right-button')} medium hover text={false}>Đăng ký</Button>
+                            <Button to={config.routes.login} classnames={cx('right-button')} medium hover text={false}>Đăng nhập</Button>
                         </div>
 
                             <div className={cx('search', {...showSearch})}>

@@ -196,6 +196,16 @@
     color: var(--primary);
 }
 
+.auth-form-submit {
+    width: 100%;
+    height: 38px;
+    font-size: 1.6rem;
+
+    &:hover {
+        background-color: #f06f00
+    }
+}
+
 @media (max-width: 1200px) {
     .navItem {
         width: 20%;
