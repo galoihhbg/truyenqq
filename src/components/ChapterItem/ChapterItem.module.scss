@@ -7,3 +7,13 @@
         border-bottom: none;
     }
 }
+
+.update-time {
+    font-stretch: expanded;
+}
+
+@media (max-width: 576px) {
+    .update-time {
+        display: none;
+    }
+}

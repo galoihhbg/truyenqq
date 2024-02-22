@@ -2,6 +2,9 @@ import Button from '../Button';
 import styles from './ChapterItem.module.scss'
 import classNames from 'classnames/bind';
 
+import { ToLocalDate } from '../../functions';
+
+
 const cx = classNames.bind(styles)
 
 function ChapterItem({data}) {
@@ -18,7 +21,7 @@ function ChapterItem({data}) {
     return ( 
         <div className={cx('wrapper')}>
             <Button {...props} classnames={'chapter-list-item'} noMargin>{data.attributes.title ? `Chương ${data.attributes.chapter}: ${data.attributes.title}` : `Chương ${data.attributes.chapter}`}</Button>
-            <span className={cx('update-time')}>24/11/2023</span>
+            <span className={cx('update-time')}>{ToLocalDate(data.attributes.updatedAt)}</span>
         </div>
      );
 }

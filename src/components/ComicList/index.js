@@ -9,6 +9,7 @@ import { faCloudDownload, faFilter } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import Loading from '../Loading';
 
 const cx = classNames.bind(styles);
 
@@ -30,6 +31,8 @@ function ComicList({listName='', params}) {
     const [mangaList, setMangaList] = useState([]);
     // eslint-disable-next-line
     const [chapterList, setChapterList] = useState([]);
+
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
     const fetchData = async () => {
@@ -68,6 +71,7 @@ function ComicList({listName='', params}) {
         return { manga: item, chapter: uniqueChapters[index].chapter };
       });
       setMangaList(mangaData);
+      setLoading(false)
     } catch (error) {
       console.log(error);
     }
@@ -89,7 +93,12 @@ function ComicList({listName='', params}) {
 
             <div className={cx('container-fluid p-0')}>
                 <div className='row'>
-                    {
+                    {loading ?
+                      Array.from({ length: 18 }).map((_, index) => (
+                        <div key={index} className='col-6 col-sm-4 col-md-3 col-lg-2 mb-5'>
+                          <Loading coverRatio />
+                        </div>
+                      )) :                     
                         mangaList.slice(0,18).map((manga) => {
                             return (
                                 <div key={manga.manga.id} className='col-6 col-sm-4 col-md-3 col-lg-2 mb-5'>

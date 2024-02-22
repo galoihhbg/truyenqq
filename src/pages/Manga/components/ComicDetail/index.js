@@ -3,16 +3,79 @@ import styles from './ComicDetail.module.scss'
 import classNames from 'classnames/bind';
 import Button from '../../../../components/Button'
 import { faBook, faEye, faHeart, faPaintBrush, faRss, faThumbsUp, faUser } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import config from '../../../../config'
+import axios from 'axios';
+
+import Cookies from 'universal-cookie';
+import { useState } from 'react';
+const cookies = new Cookies()
 
 const cx = classNames.bind(styles);
-function ComicDetail({data}) {
+function ComicDetail({data, firstChapter, bm_id = false}) {
 
     const filename =data.relationships.find(relationship => relationship.type === "cover_art").attributes.fileName;
     const author = data.relationships.find(relationship => relationship.type === "author");
     const artist = data.relationships.find(relationship => relationship.type === "artist");
     const genres = data.attributes.tags;
+
+    const token = cookies.get('TOKEN');
+    const userData = cookies.get('USER-DATA');
+    console.log(userData.userID)
+
+    const navigate = useNavigate();
+    const [bm, setBm] = useState(bm_id)
+
+    const bookmark = async () => {
+        try {
+            const response = await axios.post('http://localhost:4000/action/bookmark/create', {
+                user_id: userData.userID,
+                manga_id: data.id,
+                data: {
+                    title: data.attributes.title.en,
+                    cover: `https://uploads.mangadex.org/covers/${data.id}/${filename}.512.jpg`
+                }
+            }, {
+                headers: {"Authorization" : `Bearer ${token}`},
+            })
+            alert(response.data.message)
+            setBm(response.data.bm_id)
+        } catch (err) {
+            console.log('Something wrong!')
+        }
+        
+    }
+
+    const unbookmark = async () => {
+        try {
+            const response = await axios.post('http://localhost:4000/action/bookmark/remove', {
+                bm_id: bm,
+            }, {
+                headers: {"Authorization" : `Bearer ${token}`},
+            })
+            alert(response.data.message)
+            setBm(false)
+        } catch (err) {
+            console.log('Something wrong!')
+        }
+    }
+
+    const handleFollowButton = (e) => {
+
+        e.preventDefault();
+
+        if (!token) {
+            navigate(config.routes.login, { state: { from: window.location.pathname }, replace: true });
+            return;
+        } 
+
+        if (bm) {
+            return unbookmark();
+        } else {
+            return bookmark();
+        }
+    };
+
     return ( 
         <div className={cx('wrapper')}>
             <p className={cx('breadcrumb')}>
@@ -64,8 +127,8 @@ function ComicDetail({data}) {
                     </div>
                     <div className={cx('actions')}>
                         <div className={cx('top')}>
-                            <Button classnames={cx('comic-action-list')} bgModGreen large leftIcon={<FontAwesomeIcon icon={faBook} />} text={false} >Đọc từ đầu</Button>
-                            <Button classnames={cx('comic-action-list')} bgPinkRed large leftIcon={<FontAwesomeIcon icon={faHeart} />} text={false} >Theo dõi</Button>
+                            <Button to={`/chapter/${firstChapter.id}`} classnames={cx('comic-action-list')} bgModGreen large leftIcon={<FontAwesomeIcon icon={faBook} />} text={false} >Đọc từ đầu</Button>
+                            <Button onClick={(e) => handleFollowButton(e)} classnames={cx('comic-action-list')} bgPinkRed large leftIcon={<FontAwesomeIcon icon={faHeart} />} text={false} >{bm ? 'Hủy theo dõi' : 'Theo dõi'}</Button>
                         </div>
                         <div className={cx('bottom')}>
                             <Button classnames={cx('comic-action-list')} bgPinkViolet large leftIcon={<FontAwesomeIcon icon={faThumbsUp} />} text={false} >Thích</Button>

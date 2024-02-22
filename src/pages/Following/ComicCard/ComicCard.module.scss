@@ -1,0 +1,45 @@
+.wrapper {
+    width: 100%;
+}
+
+.cover {
+    width: 100%;
+    aspect-ratio: 512/735;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.to-manga, .to-chapter {
+    text-decoration: none;
+    color: var(--black);
+}
+
+.title, .newest-chapter {
+    text-align: center;
+
+    -webkit-line-clamp: 1;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    text-transform: capitalize;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: all 0.4s;
+
+    &:hover {
+        color: var(--primary);
+    }
+}
+
+.title {
+    line-height: 3.5rem;
+    font-weight: 700;
+    font-size: 1.6rem;
+    margin-top: 7px;
+    max-width: 100%;
+}
+
+.newest-chapter {
+    font-size: 1.2rem;
+    font-weight: 600;
+}

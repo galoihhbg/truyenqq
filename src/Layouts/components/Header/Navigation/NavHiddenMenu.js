@@ -53,7 +53,7 @@ function NavHiddenMenu({ items = [], title }) {
   
     const dropdownProps = {};
     const hoverProps = {}
-    const linkProps = isClickDropdown ? { onClick: handleClick } : {};
+    // const linkProps = isClickDropdown ? { onClick: handleClick } : {};
 
     if (isClickDropdown || window.innerWidth < 992) {
       dropdownProps.onClick = handleClickNav 

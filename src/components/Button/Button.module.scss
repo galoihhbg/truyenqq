@@ -130,6 +130,11 @@
     margin: 0;
 }
 
+.disabled {
+    cursor: not-allowed !important;
+    opacity: 0.5;
+}
+
 .genre-list-item {
     min-width: 0;
     height: 27px;
@@ -174,8 +179,8 @@
     font-size: inherit;
     font-weight: inherit;
     min-width: 0;
-    width: 65px;
-    height: 65px;
+    width: 60px;
+    height: 60px;
     display: flex;
     justify-content: center;
     color: var(--black-color);
@@ -192,7 +197,6 @@
 }
 
 .chapter-side-nav-item:hover:not(.disabled) {
-    background-color: var(--white);
     color: var(--primary);
 }
 
@@ -203,6 +207,32 @@
 
     &:hover {
         background-color: #f06f00
+    }
+}
+
+.header-menu {
+    margin: 0;
+    height: 35px;
+    font-size: 1.5rem;
+    font-weight: 400;
+    width: 240px;
+    justify-content: left;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    &+.header-menu {
+        margin-left: 0;
+    }
+    &:first-child {
+        margin-top: 10px;
+    }
+
+    &:last-child {
+        margin-bottom: 10px;
+    }
+
+    &:hover {
+        color: var(--primary);
     }
 }
 

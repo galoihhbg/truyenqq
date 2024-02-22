@@ -8,6 +8,7 @@ import Chapter from '../pages/Chapter';
 import Login from '../pages/Authentication/Login';
 import AuthenLayout from '../Layouts/AuthenLayout';
 import Register from '../pages/Authentication/Register';
+import Canvas from '../pages/Canvas';
 
 const publicRoutes = [
     {
@@ -40,6 +41,11 @@ const publicRoutes = [
         path: config.routes.register,
         component: Register,
         layout: AuthenLayout
+    },
+    {
+        path: config.routes.hpny,
+        component: Canvas,
+        layout: DefaultLayout
     }
 ]
 

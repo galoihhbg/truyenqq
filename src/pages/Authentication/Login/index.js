@@ -1,23 +1,30 @@
 import styles from '../Authen.module.scss'
 import classNames from 'classnames/bind'
 
+import Cookies from 'universal-cookie';
+
 import { Form } from 'react-bootstrap';
 import { useState, useRef } from 'react';
 import axios from 'axios';
 import Button from '../../../components/Button'
 import images from '../../../assets/images';
 import Validator from '../Validator';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAnglesRight, faAnglesLeft } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(styles)
+
+const cookies = new Cookies()
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   // eslint-disable-next-line
   const [login, setLogin] = useState(false);
+
+  const location = useLocation()
+  const state = location.state;
 
   const [focusOn, setFocusOn] = useState({
       username: false,
@@ -135,8 +142,21 @@ function Login() {
   
           axios(configuration)
             .then((result) => {
-              console.log(result)
               setLogin(true);
+
+              // set the cookie
+              cookies.set("TOKEN", result.data.token, {
+                //all routes that cookie is available
+                path: "/",
+              });
+
+              cookies.set('USER-DATA', result.data.userData, {
+                path: '/',
+              })
+
+
+              // redirect user to the auth page
+              window.location.href = state.from;
             })
             .catch((error) => {
               console.log(error)

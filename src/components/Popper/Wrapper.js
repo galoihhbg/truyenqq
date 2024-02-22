@@ -3,8 +3,12 @@ import classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles)
 
-function Wrapper({children}) {
-    return <div className={cx('wrapper')}>
+function Wrapper({children, vertical = false, classnames}) {
+    const classes = cx('wrapper', {
+        vertical,
+        [classnames]:classnames
+    })
+    return <div className={classes}>
         {children}
     </div>;
 }

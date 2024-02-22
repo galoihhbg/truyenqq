@@ -24,6 +24,7 @@ function Button({ to = false,
     classnames, 
     leftIcon,
     rightIcon,
+    disabled = false,
     ...subProps}) {
     let Comp = 'button';
 
@@ -59,6 +60,9 @@ function Button({ to = false,
 
         //shapes
         circle,
+
+        //status
+        disabled,
         [classnames]:classnames
     })
 

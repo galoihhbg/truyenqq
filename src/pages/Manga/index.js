@@ -8,10 +8,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDatabase, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 
 import {Wrapper as ChapterList} from '../../components/Popper';
+import Loading from "../../components/Loading";
 import ChapterItem from "../../components/ChapterItem";
 import axios from "axios";
 
 import { useEffect, useState } from "react";
+
+import Cookies from "universal-cookie";
+const cookies = new Cookies();
+
+const token = cookies.get('TOKEN')
+const userData = cookies.get('USER-DATA')
 
 const cx = classNames.bind(styles)
 
@@ -25,6 +32,10 @@ function Manga() {
     const [feeds, setFeeds] = useState([])
 
     const [loading, setLoading] = useState(true);
+
+    const [bm_id, setBmID] = useState(false);
+
+    const [checked, setChecked] = useState(false);
     const order = {
         chapter: 'desc',
         readableAt: 'desc'
@@ -36,12 +47,11 @@ function Manga() {
     for (const [key, value] of Object.entries(order)) {
         finalOrderQuery[`order[${key}]`] = value;
     }
-    ;
 
     const language = ['en'];
     useEffect(() => {
-        setLoading(Object.keys(manga).length===0)
-    }, [manga])
+        setLoading(Object.keys(manga).length===0 || feeds.length ===0 || !checked)
+    }, [manga, feeds, checked])
 
     useEffect(() => {
         const fetchData = async () => {
@@ -80,15 +90,34 @@ function Manga() {
                 console.log(error);
             }
         };
+
+        //Check the manga was bookmarked yet
+        const check = async () => {
+            if (token) {
+                const res = await axios.post('http://localhost:4000/action/bookmark/check', {
+                    user_id: userData.userID,
+                    manga_id: id,
+                }, {
+                    headers: {"Authorization" : `Bearer ${token}`},
+                })
+                setChecked(true)
+                if (res.data.bm_id) {
+                    setBmID(res.data.bm_id)
+                } else {
+                    setBmID(false)
+                }
+            }
+        }
     
         fetchData();
+        check()
         // eslint-disable-next-line
     }, [id]);
 
     return (
         <div className={cx('wrapper')}>
             <div className={cx('info')}> 
-                {loading ? 'Loading' :<ComicDetail data={manga} />}
+                {loading ? <Loading /> :<ComicDetail bm_id={bm_id} firstChapter={feeds[feeds.length-1]} data={manga} />}
             </div>
             
             <div className={cx('description')}>
@@ -97,7 +126,7 @@ function Manga() {
                     <span>Giới thiệu</span>
                 </p>
                 {
-                    loading ? 'Loading' :
+                    loading ? <Loading /> :
                     <ToggleWrapper>
                         <p>
                             {manga.attributes.description.en}
@@ -112,6 +141,8 @@ function Manga() {
                     <span>Danh sách chương</span>
                 </p>
                 <div className={cx('container')}>
+                    {
+                        loading ? <Loading /> :
                         <ChapterList>
                             {
                                  feeds.map(chapter => {
@@ -120,6 +151,7 @@ function Manga() {
                                  
                             }
                         </ChapterList>
+                    }
                 </div>
             </div>
             <div className={cx('comments')}>

@@ -7,6 +7,7 @@ const routes = {
 
     login: '/login',
     register: '/register',
+    hpny: '/borobreath'
 }
 
 export default routes;
