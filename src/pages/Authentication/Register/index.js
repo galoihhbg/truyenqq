@@ -163,7 +163,7 @@ function Register() {
         if (isValid) {
             const configuration = {
                 method: "post",
-                url: "http://localhost:4000/register",
+                url: "https://api-truyenqq-ciciii.onrender.com/register",
                 data: {
                   username,
                   password,

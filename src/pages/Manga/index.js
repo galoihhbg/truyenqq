@@ -94,7 +94,7 @@ function Manga() {
         //Check the manga was bookmarked yet
         const check = async () => {
             if (token) {
-                const res = await axios.post('http://localhost:4000/action/bookmark/check', {
+                const res = await axios.post('https://api-truyenqq-ciciii.onrender.com/action/bookmark/check', {
                     user_id: userData.userID,
                     manga_id: id,
                 }, {

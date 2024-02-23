@@ -28,7 +28,7 @@ function ComicDetail({data, firstChapter, bm_id = false}) {
 
     const bookmark = async () => {
         try {
-            const response = await axios.post('http://localhost:4000/action/bookmark/create', {
+            const response = await axios.post('https://api-truyenqq-ciciii.onrender.com/action/bookmark/create', {
                 user_id: userData.userID,
                 manga_id: data.id,
                 data: {
@@ -48,7 +48,7 @@ function ComicDetail({data, firstChapter, bm_id = false}) {
 
     const unbookmark = async () => {
         try {
-            const response = await axios.post('http://localhost:4000/action/bookmark/remove', {
+            const response = await axios.post('https://api-truyenqq-ciciii.onrender.com/action/bookmark/remove', {
                 bm_id: bm,
             }, {
                 headers: {"Authorization" : `Bearer ${token}`},

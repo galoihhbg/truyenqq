@@ -25,7 +25,7 @@ function Following() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.post('http://localhost:4000/action/bookmark/show-all', {
+                const response = await axios.post('https://api-truyenqq-ciciii.onrender.com/action/bookmark/show-all', {
                     user_id: userData.userID
                 }, {
                     headers: {
