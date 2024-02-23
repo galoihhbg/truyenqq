@@ -1,7 +1,9 @@
 import routes from "./routes";
+import headers from "./mdheader";
 
 const config = {
-    routes
+    routes,
+    headers
 }
 
 export default config;

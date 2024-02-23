@@ -43,6 +43,9 @@ function ComicList({listName='', params}) {
           'originalLanguage[]': 'ja',
           'translatedLanguage[]': 'en',
           'order[readableAt]': 'desc'
+        },
+        headers: {
+          ...config.headers
         }
       });
       const chapters = chapterResponse.data.data.map(data => {

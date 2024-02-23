@@ -12,6 +12,8 @@ import Loading from "../../components/Loading";
 import ChapterItem from "../../components/ChapterItem";
 import axios from "axios";
 
+import config from "../../config";
+
 import { useEffect, useState } from "react";
 
 import Cookies from "universal-cookie";
@@ -62,6 +64,9 @@ function Manga() {
                         'includes[]': ['cover_art', 'author', 'artist'],
                         limit: 1
                     },
+                    headers: {
+                        ...config.headers
+                    }
                 });
     
                 const mangaData = mangaResponse.data.data[0];
@@ -71,6 +76,9 @@ function Manga() {
                         limit: 100,
                         translatedLanguage : language,
                         ...finalOrderQuery
+                    }, 
+                    headers: {
+                        ...config.headers
                     }
                 });
 
