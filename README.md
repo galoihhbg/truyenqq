@@ -1,70 +1,21 @@
-# Getting Started with Create React App
+# Frontend cho website đọc truyện tranh
+Lấy ý tưởng từ web truyenqq, và api của mangadex.org
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Trang chủ
+![image](https://github.com/galoihhbg/truyenqq/assets/101344155/09648483-049b-4cee-997e-e78584c45ce4)
 
-## Available Scripts
+## Chức năng tìm kiếm
+![image](https://github.com/galoihhbg/truyenqq/assets/101344155/d1bc435c-1367-41a9-8102-307b47d6cafb)
 
-In the project directory, you can run:
 
-### `npm start`
+## Xem thông tin truyện
+![image](https://github.com/galoihhbg/truyenqq/assets/101344155/232b2a91-59fe-4fdb-b99d-a33be6e0c020)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Giao diện đọc truyện
+![image](https://github.com/galoihhbg/truyenqq/assets/101344155/e66c2213-665f-4278-8a73-28ebcb30decd)
+Có thể di chuyển giữa các chapter qua mục lục hoặc 2 mũi tên
+![image](https://github.com/galoihhbg/truyenqq/assets/101344155/16d1abf8-225a-4785-b609-40132468f12c)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Thiết kế Responsive, tương thích với nhiều kich thước màn hình
+![image](https://github.com/galoihhbg/truyenqq/assets/101344155/72901bce-a45c-4a6f-90bf-432b2b9fb3de)
+![image](https://github.com/galoihhbg/truyenqq/assets/101344155/f6b146e8-02f4-43dd-8738-df823326781f)
